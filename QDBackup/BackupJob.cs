@@ -22,6 +22,16 @@ namespace QDBackup
             _stopFlag = true;
         }
 
+        public JobStatus Run()
+        {
+            JobStatus ret = new JobStatus { Status = JobStatus.CompletionFlag.InProgress };
+            while (ret.Status == JobStatus.CompletionFlag.InProgress && !_stopFlag)
+            {
+                
+            }
 
+            return ret;
+        }
+        
     }
 }
