@@ -39,7 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BackupJob.cs" />
+    <Compile Include="BackupJobRunner.cs" />
+    <Compile Include="BackupSet.cs" />
+    <Compile Include="BackupFileSource.cs" />
+    <Compile Include="BackupSetList.cs" />
+    <Compile Include="ExclusionRule.cs" />
+    <Compile Include="IBackupSetListSource.cs" />
+    <Compile Include="JobStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

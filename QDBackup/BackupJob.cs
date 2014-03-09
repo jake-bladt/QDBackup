@@ -8,15 +8,6 @@ namespace QDBackup
 {
     public class BackupJob
     {
-        public enum CompletionFlag { Abend, InProgress, Complete }
-        public class JobStatus
-        {
-            CompletionFlag Status { get; set; }
-            decimal JobCompletePercentage { get; set; }
-            decimal SetCompletePercentage { get; set; }
-            string Message { get; set; }
-        }
-
         private BackupSet _backupSet;
         private bool _stopFlag;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QDBackup
 {
-    public class Class1
+    public class BackupFileSource
     {
     }
 }
