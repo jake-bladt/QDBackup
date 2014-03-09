@@ -10,9 +10,9 @@ namespace QDBackup
     {
         public enum CompletionFlag { Abend, InProgress, Complete }
 
-        CompletionFlag Status { get; set; }
-        decimal JobCompletePercentage { get; set; }
-        decimal SetCompletePercentage { get; set; }
-        string Message { get; set; }
+        public CompletionFlag Status { get; set; }
+        public decimal JobCompletePercentage { get; set; }
+        public decimal SetCompletePercentage { get; set; }
+        public string Message { get; set; }
     }
 }
