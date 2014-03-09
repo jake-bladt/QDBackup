@@ -8,7 +8,7 @@ namespace QDBackup
 {
     public class ExclusionRule
     {
-        string Name { get; protected set; }
-        string Path { get; protected set; }
+        public string Name { get; protected set; }
+        public string Path { get; protected set; }
     }
 }
