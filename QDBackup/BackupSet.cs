@@ -12,5 +12,11 @@ namespace QDBackup
         public string TargetPath { get; protected set; }
         public string SourcePath { get; protected set; }
         public List<ExclusionRule> Exclusions { get; protected set; }
+
+        public BackupSet()
+            : base()
+        {
+            Exclusions = new List<ExclusionRule>();
+        }
     }
 }
