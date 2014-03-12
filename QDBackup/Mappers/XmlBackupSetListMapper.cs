@@ -14,22 +14,47 @@ namespace QDBackup.Mappers
         public string FilePath { get; protected set; }
         protected XmlSerializer _serializer;
 
+        protected class SetListElement
+        {
+            public string Name { get; set; }
+            public BackupSet Set { get; set; }
+        }
+
+        protected class SerializableSetList : List<SetListElement>
+        {
+            public static SerializableSetList FromBackupSetList(BackupSetList bsl)
+            {
+                SerializableSetList ret = new SerializableSetList();
+                bsl.ToList().ForEach(kvp => ret.Add(new SetListElement { Name = kvp.Key, Set = kvp.Value }));
+                return ret;
+            }
+
+            public BackupSetList ToBackupSetList(IBackupSetListMapper mapper)
+            {
+                BackupSetList ret = new BackupSetList(mapper);
+                this.ForEach(elem => ret[elem.Name] = elem.Set);
+                return ret;
+            }
+
+        }
+
         public XmlBackupSetListMapper(string path)
         {
             FilePath = path;
-            _serializer = new XmlSerializer(typeof(BackupSetList));
+            _serializer = new XmlSerializer(typeof(SerializableSetList));
         }
 
         public BackupSetList Load()
         {
             if(File.Exists(FilePath))
             {
-                return new BackupSetList(this);
+                var fileStream = new FileStream(FilePath, FileMode.Open);
+                var intermediateSetList = (SerializableSetList)_serializer.Deserialize(fileStream);
+                return intermediateSetList.ToBackupSetList(this);
             }
             else
             {
-                var fileStream = new FileStream(FilePath, FileMode.Open);
-                return (BackupSetList)_serializer.Deserialize(fileStream);
+                return new BackupSetList(this);
             }
         }
 
@@ -38,7 +63,8 @@ namespace QDBackup.Mappers
             try
             {
                 var fileStream = new FileStream(FilePath, FileMode.Create);
-                _serializer.Serialize(fileStream, list);
+                var intermediateSetList = SerializableSetList.FromBackupSetList(list);
+                _serializer.Serialize(fileStream, intermediateSetList);
             }
             catch (Exception ex)
             {
