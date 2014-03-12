@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QDBackup
+namespace QDBackup.Mappers
 {
-    public interface IBackupSetListSource
+    public interface IBackupSetListMapper
     {
-        BackupSetList GetBackupSets();
+        BackupSetList Load();
+        bool Save(BackupSetList list);
     }
 }

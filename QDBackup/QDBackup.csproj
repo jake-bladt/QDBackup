@@ -45,10 +45,12 @@
     <Compile Include="BackupFileSource.cs" />
     <Compile Include="BackupSetList.cs" />
     <Compile Include="ExclusionRule.cs" />
-    <Compile Include="IBackupSetListSource.cs" />
     <Compile Include="JobStatus.cs" />
+    <Compile Include="Mappers\IBackupSetListMapper.cs" />
+    <Compile Include="Mappers\XmlBackupSetListMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
