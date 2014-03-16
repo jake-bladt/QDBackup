@@ -9,19 +9,26 @@ using System.Xml.Serialization;
 
 namespace QDBackup.Mappers
 {
+    
     public class XmlBackupSetListMapper : IBackupSetListMapper
     {
         public string FilePath { get; protected set; }
         protected XmlSerializer _serializer;
 
-        protected class SetListElement
+        public class SetListElement
         {
             public string Name { get; set; }
             public BackupSet Set { get; set; }
         }
 
-        protected class SerializableSetList : List<SetListElement>
+        [Serializable]
+        public class SerializableSetList : List<SetListElement>
         {
+            public SerializableSetList()
+            {
+                throw new NotImplementedException("XML Serialization is not yet ready for use.");
+            }
+
             public static SerializableSetList FromBackupSetList(BackupSetList bsl)
             {
                 SerializableSetList ret = new SerializableSetList();
