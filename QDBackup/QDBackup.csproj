@@ -47,6 +47,7 @@
     <Compile Include="ExclusionRule.cs" />
     <Compile Include="JobStatus.cs" />
     <Compile Include="Mappers\IBackupSetListMapper.cs" />
+    <Compile Include="Mappers\SqlBackupSetListMapper.cs" />
     <Compile Include="Mappers\XmlBackupSetListMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
