@@ -15,3 +15,4 @@ After kicking this project around in my head for a few years, I have an entirely
 * Completely decentralized? (As a mode or in general?)
 * Idempotent configuration in JSON?
 * Electron app for tracking?
+* Merkle trees for quick comparison of directories?
